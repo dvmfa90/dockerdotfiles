@@ -5,15 +5,15 @@
 
 export ZSH="/root/.config/zsh"
 
-tmux source ~/.config/tmux/.tmux.conf
-tmux_running=$(pgrep tmux)
-if ! [[ -z $tmux_running ]]; then
-    echo "running"
-    tmux attach-session -t diogo
-else
-    tmux new -d -s diogo
-    tmux attach-session -t diogo
-fi
+# tmux source ~/.config/tmux/.tmux.conf
+# tmux_running=$(pgrep tmux)
+# if ! [[ -z $tmux_running ]]; then
+#     echo "running"
+#     tmux attach-session -t diogo
+# else
+#     tmux new -d -s diogo
+#     tmux attach-session -t diogo
+# fi
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
