@@ -4,8 +4,9 @@
 # Path to your oh-my-zsh installation.
 
 export ZSH="/root/.config/zsh"
+export SHELL=/bin/zsh
 
-# tmux source ~/.config/tmux/.tmux.conf
+tmux source /root/.config/tmux/.tmux.conf
 # tmux_running=$(pgrep tmux)
 # if ! [[ -z $tmux_running ]]; then
 #     echo "running"
