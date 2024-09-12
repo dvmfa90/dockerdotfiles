@@ -1718,7 +1718,6 @@ netdata/netdata:edge\
 : 1708621597:0;sudo docker ps
 : 1708621956:0;az account set --subscription "cebc68a0-e897-4612-bb68-5d726a32a554"
 : 1708622191:0;cd .config/zsh
-: 1708622193:0;nvim .zshrc
 : 1708622164:0;az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/cebc68a0-e897-4612-bb68-5d726a32a554"
 : 1708621760:0;az login
 : 1708641144:0;chmod +x st.sh
@@ -3397,7 +3396,6 @@ rm -rf $HOME/.local/state/nvim/shada\
 : 1725990308:0;cat Docker
 : 1725990651:0;cp -r bomgar-pam.desktop dockerdev.desktop
 : 1725990311:0;cat Dockerfile
-: 1725992320:0;cls
 : 1725992324:0;cd docker-hub
 : 1725992329:0;cd debian
 : 1725992628:0;docker stop determined_visvesvaraya
@@ -3430,9 +3428,7 @@ docker run --rm -it -p 8501:8501 \\
 : 1725999067:0;cd baseline
 : 1725999328:0;git clone git@github.com:dvmfa90/programming.git
 : 1725999350:0;ls programming
-: 1725999491:0;git status
 : 1725999659:0;ls python
-: 1725999688:0;
 : 1725999699:0;cp -r terraform programming
 : 1725999741:0;cp -r powershell programming
 : 1725999745:0;cp -r python programming
@@ -3483,7 +3479,6 @@ docker run --rm -it -p 8501:8501 \\
 : 1726047965:0;cd ..
 : 1726047976:0;mv serverdotfiles dockerdotfiles
 : 1726047980:0;cd dockerdotfiles
-: 1726047980:0;ls
 : 1726047986:0;mv plugins tmux
 : 1726047987:0;ls tmux
 : 1726048000:0;git init
@@ -3496,3 +3491,10 @@ docker run --rm -it -p 8501:8501 \\
 : 1726048108:0;git commit -m "initial commit"
 : 1726047954:0;cp -r .tmux/plugins /mnt/onedrive/github/serverdotfiles
 : 1726048132:0;cp -r .config/tmux /mnt/onedrive/github/dockerdotfiles
+: 1726140475:0;cd /root/.config/zsh
+: 1726140658:0;nvim .zshrc
+: 1726140670:0;source .zshrc
+: 1726162644:0;
+: 1726162646:0;cls
+: 1726162658:0;git status
+: 1726162669:0;ls
