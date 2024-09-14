@@ -3462,7 +3462,6 @@ docker run --rm -it -p 8501:8501 \\
 : 1726041363:0;git remote add origin git@github.com:dvmfa90/tmux.git
 : 1726041439:0;cd docker-hub/dev
 : 1726045827:0;git remote add origin git@github.com:dvmfa90/zsh.git
-: 1726046378:0;ls -la
 : 1726046384:0;cat .zshenv
 : 1726047508:0;s
 : 1726047522:0;mkdir serverdotfiles
@@ -3472,7 +3471,6 @@ docker run --rm -it -p 8501:8501 \\
 : 1726047848:0;cp -r tmux /mnt/onedrive/github/serverdotfiles
 : 1726047932:0;cd tmux
 : 1726047865:0;nvim tmux/.tmux.conf
-: 1726047965:0;cd ..
 : 1726047976:0;mv serverdotfiles dockerdotfiles
 : 1726047980:0;cd dockerdotfiles
 : 1726047986:0;mv plugins tmux
@@ -3480,27 +3478,35 @@ docker run --rm -it -p 8501:8501 \\
 : 1726048000:0;git init
 : 1726048034:0;git remote add origin git@github.com:dvmfa90/dockerdotfiles.git
 : 1726048051:0;git branch -M main
-: 1726048069:0;git push
 : 1726048077:0;git push -u origin main
 : 1726048097:0;rm -rf *
-: 1726048105:0;git add .
 : 1726048108:0;git commit -m "initial commit"
 : 1726047954:0;cp -r .tmux/plugins /mnt/onedrive/github/serverdotfiles
 : 1726048132:0;cp -r .config/tmux /mnt/onedrive/github/dockerdotfiles
 : 1726140475:0;cd /root/.config/zsh
-: 1726162644:0;
 : 1726162646:0;cls
-: 1726309563:0;cd programming/python/streamlit
 : 1726309583:0;git pull
 : 1726309626:0;nvim venv.sh
 : 1726309674:0;nvim .zshrc
-: 1726309752:0;cd /github/programming/python/streamlit
-: 1726309753:0;ls
-: 1726309756:0;cenv
-: 1726309773:0;cd
-: 1726309783:0;cd .config/zsh
 : 1726309786:0;which pip
-: 1726309794:0;nvim alias
-: 1726309809:0;source .zshrc
-: 1726309811:0;denv
-: 1726309814:0;git status
+: 1726309818:0;git add .
+: 1726309827:0;git commit -m "added aliases for venv"
+: 1726309829:0;git push
+: 1726309850:0;cd /github/streamlit-netdevops
+: 1726309853:0;cd ..
+: 1726309856:0;cd programming/python/streamlit
+: 1726309862:0;ls .venv
+: 1726309873:0;git status
+: 1726309882:0;rm -rf venv.sh
+: 1726310238:0;source .zshrc
+: 1726310262:0;ls
+: 1726310265:0;ls -la
+: 1726310269:0;rm -rf .venv
+: 1726310295:0;nvim alias
+: 1726310306:0;cd /github/programming/python/streamlit
+: 1726310321:0;source /root/.config/zsh/.zshrc
+: 1726310323:0;cenv
+: 1726310327:0;cd
+: 1726310328:0;
+: 1726310333:0;denv
+: 1726310335:0;cd .config/zsh
