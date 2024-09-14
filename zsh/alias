@@ -30,4 +30,5 @@ alias remoteping='ssh -t 10.0.110.51 ping'
 alias djangossh='ssh ccadmin@20.49.205.18 -p 22223'
 alias gitquick='git add . && git commit -m "quick commit" && git push'
 alias tf='terraform'
-
+alias cenv='python3 -m venv .venv && source .venv/bin/activate'
+alias denv='deactivate'

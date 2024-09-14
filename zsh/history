@@ -1651,7 +1651,6 @@ netdata/netdata:edge\
 : 1707838962:0;sipcalc 10.253.8.0/22
 : 1707839119:0;sipcalc 10.253.10.0/23
 : 1707839137:0;sipcalc 10.253.16.0/23
-: 1707909663:0;nvim alias
 : 1707909680:0;remoteping 193.117.151.122
 : 1707912770:0;remoteping 51.132.178.27
 : 1707922892:0;whois 20.202.255.225
@@ -1717,7 +1716,6 @@ netdata/netdata:edge\
 : 1708621589:0;sudo terraform destroy
 : 1708621597:0;sudo docker ps
 : 1708621956:0;az account set --subscription "cebc68a0-e897-4612-bb68-5d726a32a554"
-: 1708622191:0;cd .config/zsh
 : 1708622164:0;az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/cebc68a0-e897-4612-bb68-5d726a32a554"
 : 1708621760:0;az login
 : 1708641144:0;chmod +x st.sh
@@ -3452,7 +3450,6 @@ docker run --rm -it -p 8501:8501 \\
 : 1726002897:0;nvim main.py
 : 1726003102:0;cd programming
 : 1726003107:0;cd python
-: 1726003133:0;git pull
 : 1726003162:0;mv ../../streamlit/env/pages streamlit/
 : 1726003165:0;ls streamlit
 : 1726003179:0;git commit -m "added pages to streamlit"
@@ -3474,7 +3471,6 @@ docker run --rm -it -p 8501:8501 \\
 : 1726047831:0;cp -r zsh /mnt/onedrive/github/serverdotfiles
 : 1726047848:0;cp -r tmux /mnt/onedrive/github/serverdotfiles
 : 1726047932:0;cd tmux
-: 1726047935:0;cd
 : 1726047865:0;nvim tmux/.tmux.conf
 : 1726047965:0;cd ..
 : 1726047976:0;mv serverdotfiles dockerdotfiles
@@ -3492,9 +3488,19 @@ docker run --rm -it -p 8501:8501 \\
 : 1726047954:0;cp -r .tmux/plugins /mnt/onedrive/github/serverdotfiles
 : 1726048132:0;cp -r .config/tmux /mnt/onedrive/github/dockerdotfiles
 : 1726140475:0;cd /root/.config/zsh
-: 1726140658:0;nvim .zshrc
-: 1726140670:0;source .zshrc
 : 1726162644:0;
 : 1726162646:0;cls
-: 1726162658:0;git status
-: 1726162669:0;ls
+: 1726309563:0;cd programming/python/streamlit
+: 1726309583:0;git pull
+: 1726309626:0;nvim venv.sh
+: 1726309674:0;nvim .zshrc
+: 1726309752:0;cd /github/programming/python/streamlit
+: 1726309753:0;ls
+: 1726309756:0;cenv
+: 1726309773:0;cd
+: 1726309783:0;cd .config/zsh
+: 1726309786:0;which pip
+: 1726309794:0;nvim alias
+: 1726309809:0;source .zshrc
+: 1726309811:0;denv
+: 1726309814:0;git status
