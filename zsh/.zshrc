@@ -35,3 +35,6 @@ fzf-history-widget() {
     fi
     zle redisplay
 }
+
+zle -N fzf-history-widget
+bindkey '^r' 'fzf-history-widget'
