@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 
+tmux source ~/.config/tmux/.tmux.conf
 export ZSH="$HOME/.config/zsh"
 export SHELL=/bin/zsh
 
