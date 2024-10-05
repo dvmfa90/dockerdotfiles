@@ -6,6 +6,7 @@
 export ZSH="$HOME/.config/zsh"
 export SHELL=/bin/zsh
 
+tmux source ~/.config/tmux/.tmux.conf
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="gnzh"
 
