@@ -1,2 +1,2 @@
-require("josean.core.options")
-require("josean.core.keymaps")
+require("docker.core.options")
+require("docker.core.keymaps")
