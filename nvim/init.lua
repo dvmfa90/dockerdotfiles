@@ -1,2 +1,2 @@
-require("diogo.core")
-require("diogo.lazy")
+require("docker.core")
+require("docker.lazy")
