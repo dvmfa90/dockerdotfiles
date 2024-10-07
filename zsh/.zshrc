@@ -53,7 +53,7 @@ function fzf_regex_search() {
         local regex=$(echo "$selection" | awk -F ': ' '{print $2}')
         
         # Insert the regex into the command line
-        LBUFFER="'$regex'"
+        LBUFFER+="'$regex'"
         zle reset-prompt
     fi
 }
