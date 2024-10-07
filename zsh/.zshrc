@@ -39,3 +39,28 @@ fzf-history-widget() {
 
 zle -N fzf-history-widget
 bindkey '^r' 'fzf-history-widget'
+
+function fzf_regex_search() {
+    # Specify your regex file here
+    local regex_file="$HOME/path/to/regex_patterns.txt"
+
+    # Use fzf to search through the regex file
+    local selection=$(grep -v '^#' "$regex_file" | fzf --header="Select a regex description" --preview="echo {}" --with-nth=1..)
+
+    # Check if a selection was made
+    if [[ -n "$selection" ]]; then
+        # Extract the regex pattern from the selected line
+        local regex=$(echo "$selection" | awk -F ': ' '{print $2}')
+        
+        # Insert the regex into the command line
+        LBUFFER="'$regex'"
+        zle reset-prompt
+    fi
+}
+
+# Create a Zsh widget for the function
+zle -N fzf_regex_search
+
+# Bind the widget to a key combination, for example, Ctrl+R
+bindkey '^g' fzf_regex_search
+
