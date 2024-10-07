@@ -17,7 +17,7 @@ export REPORTTIME=30
 setopt autocd extendedglob correct nohup share_history hist_ignore_all_dups hist_ignore_space
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git per-directory-history zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git per-directory-history zsh-syntax-highlighting)
 
 
 source $ZSH/oh-my-zsh.sh
