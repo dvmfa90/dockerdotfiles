@@ -42,7 +42,7 @@ bindkey '^r' 'fzf-history-widget'
 
 function fzf_regex_search() {
     # Specify your regex file here
-    local regex_file="$HOME/path/to/regex_patterns.txt"
+    local regex_file="$HOME/.config/zsh/user/regex.txt"
 
     # Use fzf to search through the regex file
     local selection=$(grep -v '^#' "$regex_file" | fzf --header="Select a regex description" --preview="echo {}" --with-nth=1..)
