@@ -5,6 +5,7 @@
 
 export ZSH="$HOME/.config/zsh"
 export SHELL=/bin/zsh
+export TMUX_PLUGIN_MANAGER_PATH='~/.tmux/plugins/'
 
 tmux source ~/.config/tmux/.tmux.conf
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
