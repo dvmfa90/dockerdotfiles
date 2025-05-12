@@ -11,7 +11,6 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'rn', vim.lsp.buf.rename, opts)
 
 end)
 -- to learn how to use mason.nvim with lsp-zero
@@ -19,7 +18,7 @@ end)
 require('mason').setup({})
 
 require('mason-lspconfig').setup({
-  ensure_installed = { 'pyright' },
+  ensure_installed = {},
   handlers = {
     lsp_zero.default_setup,
 
@@ -32,7 +31,6 @@ require('mason-lspconfig').setup({
         ---
       })
     end,
-
     rust_analyzer = function()
       require'lspconfig'.rust_analyzer.setup{
         cmd = {
@@ -41,6 +39,10 @@ require('mason-lspconfig').setup({
 
       }
     end,
-
+    marksman = function()
+      require('lspconfig').marksman.setup({
+        -- Add any custom configuration here if needed
+      })
+    end,
   },
 })
