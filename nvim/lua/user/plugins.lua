@@ -91,7 +91,7 @@ return packer.startup(function(use)
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
     requires = {
-      { "williamboman/mason.nvim", commit = "e2f7f9044ec30067bc11800a9e266664b88cda22" },
+      { "williamboman/mason.nvim",           commit = "e2f7f9044ec30067bc11800a9e266664b88cda22" },
       { "williamboman/mason-lspconfig.nvim", commit = "8e46de9241d3997927af12196bd8faa0ed08c29a" },
       { "neovim/nvim-lspconfig" },
       { "hrsh7th/nvim-cmp" },
@@ -150,9 +150,12 @@ return packer.startup(function(use)
       "rcarriga/nvim-notify",
     },
   })
+  use({
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+  })
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
 end)
-
