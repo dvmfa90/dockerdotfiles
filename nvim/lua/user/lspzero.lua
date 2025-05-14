@@ -1,48 +1,63 @@
 local lsp_zero = require('lsp-zero')
 
+-- Setup LSP attachment behavior
 lsp_zero.on_attach(function(client, bufnr)
-    -- local opts = { buffer = ev.buf }
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp_zero.default_keymaps({buffer = bufnr})
-  vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', {buffer = bufnr})
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  local opts = { buffer = bufnr }
+  local map = vim.keymap.set
 
+  -- Default LSP keymaps from lsp-zero
+  lsp_zero.default_keymaps(opts)
+
+  -- Extra keymaps
+  map('n', 'gd', vim.lsp.buf.definition, opts)
+  map('n', 'gD', vim.lsp.buf.declaration, opts)
+  map('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
+  map('n', 'gi', vim.lsp.buf.implementation, opts)
+  map('n', 'K', vim.lsp.buf.hover, opts)
+  map('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+  map('n', '<leader>rn', vim.lsp.buf.rename, opts)
+  map('n', '[d', vim.diagnostic.goto_prev, opts)
+  map('n', ']d', vim.diagnostic.goto_next, opts)
+
+  -- Format on save
+  if client.server_capabilities.documentFormattingProvider then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({ async = true })
+      end,
+    })
+  end
 end)
--- to learn how to use mason.nvim with lsp-zero
--- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
+
+-- Mason setup (LSP installer)
 require('mason').setup({})
 
+-- Mason LSPConfig integration
 require('mason-lspconfig').setup({
   ensure_installed = { 'pyright' },
   handlers = {
+    -- Default handler for most servers
     lsp_zero.default_setup,
 
-    --- replace `example_server` with the name of a language server
+    -- Powershell LSP
     powershell_es = function()
       require('lspconfig').powershell_es.setup({
-        ---
-        bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services/"  -- in here you can add your own
-        -- custom configuration
-        ---
+        bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services/",
       })
     end,
-    rust_analyzer = function()
-      require'lspconfig'.rust_analyzer.setup{
-        cmd = {
-          "rustup", "run", "stable", "rust-analyzer",
-        }
 
-      }
-    end,
-    marksman = function()
-      require('lspconfig').marksman.setup({
-        -- Add any custom configuration here if needed
+    -- Rust LSP (via rustup)
+    rust_analyzer = function()
+      require('lspconfig').rust_analyzer.setup({
+        cmd = { "rustup", "run", "stable", "rust-analyzer" },
       })
+    end,
+
+    -- Markdown LSP (Marksman)
+    marksman = function()
+      require('lspconfig').marksman.setup({})
     end,
   },
 })
+
