@@ -154,6 +154,7 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
   })
+  use({ 'terrastruct/d2-vim', ft = { 'd2' } })
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
