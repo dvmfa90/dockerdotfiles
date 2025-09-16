@@ -93,14 +93,14 @@ return packer.startup(function(use)
     requires = {
       { "williamboman/mason.nvim",           commit = "e2f7f9044ec30067bc11800a9e266664b88cda22" },
       { "williamboman/mason-lspconfig.nvim", commit = "8e46de9241d3997927af12196bd8faa0ed08c29a" },
-      { "neovim/nvim-lspconfig" },
-      { "hrsh7th/nvim-cmp" },
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "L3MON4D3/LuaSnip" },
-      { "rafamadriz/friendly-snippets" },
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-path" },
-      { "saadparwaiz1/cmp_luasnip" },
+      { "neovim/nvim-lspconfig",             commit = "ce45ccd6a97be8752ed83d1e14ac2aff1d5a4238" },
+      { "hrsh7th/nvim-cmp",                  commit = "b5311ab3ed9c846b585c0c15b7559be131ec4be9" },
+      { "hrsh7th/cmp-nvim-lsp",              commit = "bd5a7d6db125d4654b50eeae9f5217f24bb22fd3" },
+      { "L3MON4D3/LuaSnip",                  commit = "b3104910bb5ebf40492aadffae18f2528fa757d9" },
+      { "rafamadriz/friendly-snippets",      commit = "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
+      { "hrsh7th/cmp-buffer",                commit = "b74fab3656eea9de20a9b8116afa3cfc4ec09657" },
+      { "hrsh7th/cmp-path",                  commit = "c642487086dbd9a93160e1679a1327be111cbc25" },
+      { "saadparwaiz1/cmp_luasnip",          commit = "98d9cb5c2c38532bd9bdb481067b20fea8f32e9" },
     },
   })
 
