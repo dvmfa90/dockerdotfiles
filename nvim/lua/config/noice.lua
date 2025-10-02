@@ -29,3 +29,4 @@ require("noice").setup({
 require("notify").setup({
   timeout = 1000, -- milliseconds, so this is 1 second
 })
+

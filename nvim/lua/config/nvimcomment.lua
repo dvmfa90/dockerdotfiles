@@ -17,3 +17,4 @@ require('nvim_comment').setup
   -- Hook function to call before commenting takes place
   hook = nil
 }
+
