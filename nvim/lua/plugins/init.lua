@@ -76,12 +76,14 @@ return {
    "nvim-treesitter/nvim-treesitter",
     event = "VeryLazy",
     -- 'opts = {}' is sufficient to load the plugin with default settings.
+    dependencies = {
+       'nvim-treesitter/nvim-treesitter-textobjects',
+  },
   config = function()
     require("config.treesitter")
   end,
   },
 -- {
---  'nvim-treesitter/nvim-treesitter-textobjects',
 --   event = "VeryLazy",
 --   opts = {}, 
 --   dependencies = { "nvim-treesitter/nvim-treesitter" } -- Bufferline usually needs devicons
@@ -98,5 +100,115 @@ return {
     require("config.telescope")
   end,
   },
+  {
+  "plasticboy/vim-markdown",
+  -- Load only when a Markdown file is opened
+  ft = "markdown", 
+  -- No config needed; it works using Vimscript defaults
+},
+{
+  "iamcco/markdown-preview.nvim",
+  -- Load only when the command is run
+  cmd = { "MarkdownPreview", "MarkdownPreviewStop" }, 
+  -- The build key replaces 'run'
+  build = "cd app && npm install", 
+  -- Ensure it loads for Markdown files
+  ft = "markdown", 
+  -- We'll assume default config, so opts = {}
+   config = function()
+    require("markdown-preview").setup({})
+  end,
+},
+{
+  "MunifTanjim/prettier.nvim",
+  -- Load after most plugins are done initializing
+  event = "VeryLazy", 
+  -- Explicitly call your config file for setup and keymaps
+  config = function()
+    require("config.prettier")
+  end,
+  -- Note: prettier.nvim needs Node.js and the 'prettier' package installed globally/locally.
+},
+{
+  "MeanderingProgrammer/render-markdown.nvim",
+  -- Load only when a Markdown file is opened
+  ft = "markdown", 
+  
+  dependencies = {
+    -- Replaces 'after = { "nvim-treesitter" }'
+    "nvim-treesitter/nvim-treesitter", 
+    -- Replaces 'requires = { "echasnovski/mini.nvim", opt = true }'
+    "echasnovski/mini.nvim", 
+  },
+  
+  -- Explicitly call your config file (optional, but clean)
+  config = function()
+    require("config.render-markdown") -- assuming you use a separate config file
+  end,
+},
 
+
+   -- =====================================================================
+  -- 3. LSP
+  -- =====================================================================
+
+-- Mason (LSP/DAP/Tools Installer)
+{
+  "williamboman/mason.nvim",
+  cmd = "Mason", -- Load when Mason command is used
+  opts = {},     -- Use defaults for now (can add custom options later)
+},
+
+-- nvim-lspconfig and mason-lspconfig (Core LSP Setup)
+{
+  "neovim/nvim-lspconfig",
+  -- Load before reading any buffer
+  event = "BufReadPre", 
+  
+  dependencies = {
+    -- Auto-sets up servers installed by Mason
+    "williamboman/mason-lspconfig.nvim", 
+    -- We need Mason installed
+    "williamboman/mason.nvim",
+  },
+  
+  -- Explicitly call your LSP config file
+  config = function()
+    require("config.lspconfig")
+  end,
+},
+
+-- nvim-cmp (Completion Engine)
+{
+  "hrsh7th/nvim-cmp",
+  -- Load when you start typing
+  event = "InsertEnter", 
+  
+  dependencies = {
+    -- Sources:
+    "hrsh7th/cmp-nvim-lsp", -- LSP source
+    "L3MON4D3/LuaSnip",     -- Snippets engine (must be configured separately)
+    "saadparwaiz1/cmp_luasnip", -- Snippets source
+    "hrsh7th/cmp-buffer",   -- Buffer words source
+    "hrsh7th/cmp-path",     -- File path source
+  },
+  
+  -- Explicitly call your CMP config file
+  config = function()
+    require("config.cmp")
+  end,
+},
+
+-- LuaSnip (Snippet Engine)
+{
+  "L3MON4D3/LuaSnip",
+  -- Load immediately when nvim-cmp loads
+  dependencies = {
+    "rafamadriz/friendly-snippets", -- Snippet collection
+  },
+  -- Explicitly call your Snippet config file
+  config = function()
+    require("config.snip")
+  end,
+},
 }
