@@ -28,13 +28,19 @@ return {
     require("config.lualine")
     end,
   },
---   {
---   'nvim-orgmode/orgmode',
---   event = 'VeryLazy',
---   config = function()
---     require("config.orgmode")
---   end,
--- },
+  {
+  'nvim-orgmode/orgmode',
+  event = 'VeryLazy',
+  dependencies = {
+      'nvim-telescope/telescope.nvim',
+      'nvim-orgmode/telescope-orgmode.nvim',
+      'nvim-orgmode/org-bullets.nvim',
+      'Saghen/blink.cmp',
+  },
+  config = function()
+    require("config.orgmode")
+  end,
+},
 {
   "nvim-tree/nvim-tree.lua",
   version = "*",
@@ -106,18 +112,24 @@ return {
   ft = "markdown", 
   -- No config needed; it works using Vimscript defaults
 },
+-- {
+--   "iamcco/markdown-preview.nvim",
+--   -- Load only when the command is run
+--   cmd = { "MarkdownPreview", "MarkdownPreviewStop" }, 
+--   -- The build key replaces 'run'
+--   build = "cd app && npm install", 
+--   -- Ensure it loads for Markdown files
+--   ft = "markdown", 
+--   -- We'll assume default config, so opts = {}
+--    config = function()
+--     require("markdown-preview").setup({})
+--   end,
+-- },
 {
-  "iamcco/markdown-preview.nvim",
-  -- Load only when the command is run
-  cmd = { "MarkdownPreview", "MarkdownPreviewStop" }, 
-  -- The build key replaces 'run'
-  build = "cd app && npm install", 
-  -- Ensure it loads for Markdown files
-  ft = "markdown", 
-  -- We'll assume default config, so opts = {}
-   config = function()
-    require("markdown-preview").setup({})
-  end,
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
 },
 {
   "MunifTanjim/prettier.nvim",
@@ -147,7 +159,18 @@ return {
   end,
 },
 
+{
+ "lervag/wiki.vim",
+ },
 
+
+ {
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  config = function()
+    require("config.whichkey") -- assuming you use a separate config file
+  end,
+},
    -- =====================================================================
   -- 3. LSP
   -- =====================================================================
