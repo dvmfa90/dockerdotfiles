@@ -72,5 +72,31 @@ return {
     require("config.noice")
   end,
 },
+ {
+   "nvim-treesitter/nvim-treesitter",
+    event = "VeryLazy",
+    -- 'opts = {}' is sufficient to load the plugin with default settings.
+  config = function()
+    require("config.treesitter")
+  end,
+  },
+-- {
+--  'nvim-treesitter/nvim-treesitter-textobjects',
+--   event = "VeryLazy",
+--   opts = {}, 
+--   dependencies = { "nvim-treesitter/nvim-treesitter" } -- Bufferline usually needs devicons
+-- },
+ {
+   "nvim-telescope/telescope.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-file-browser.nvim",
+  },
+    -- 'opts = {}' is sufficient to load the plugin with default settings.
+  config = function()
+    require("config.telescope")
+  end,
+  },
 
 }
