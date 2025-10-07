@@ -1,5 +1,11 @@
 require 'nvim-treesitter.configs'.setup {
-  ensure_installed = { "python", "lua", "vim", "query" }, -- add more languages as needed
+  ensure_installed = { 
+    "python", 
+    "markdown", 
+    "markdown_inline", 
+    "lua", 
+    "vim",
+    "query" }, -- add more languages as needed
   sync_install = false,
   auto_install = true,
 

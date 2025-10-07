@@ -7,10 +7,18 @@ return {
     lazy = false,
     style = "night",
     priority = 1000, -- Load first
-    priority = 1000, -- Load first
    config = function()
     -- This line is what makes it explicit and easy to follow!
     require("config.tokyonight")
+    end,
+  },
+  {
+    "folke/snacks.nvim",
+    lazy = false,
+    priority = 1000, -- Load first
+   config = function()
+    -- This line is what makes it explicit and easy to follow!
+    require("config.snacks")
     end,
   },
    -- =====================================================================
@@ -30,7 +38,10 @@ return {
   },
   {
   'nvim-orgmode/orgmode',
-  event = 'VeryLazy',
+  -- ft = "org",
+    lazy = false,
+    priority = 1000, -- Load first
+  -- event = 'VeryLazy',
   dependencies = {
       'nvim-telescope/telescope.nvim',
       'nvim-orgmode/telescope-orgmode.nvim',
@@ -39,6 +50,16 @@ return {
   },
   config = function()
     require("config.orgmode")
+  end,
+},
+{
+  'kevinhwang91/nvim-ufo',
+  event = 'VeryLazy',
+  dependencies = {
+      'kevinhwang91/promise-async',
+  },
+  config = function()
+    require("config.ufo")
   end,
 },
 {
@@ -163,6 +184,9 @@ return {
  "lervag/wiki.vim",
  },
 
+{
+  "norcalli/nvim-colorizer.lua",
+ },
 
  {
   "folke/which-key.nvim",
@@ -171,6 +195,24 @@ return {
     require("config.whichkey") -- assuming you use a separate config file
   end,
 },
+-- {
+--   "folke/which-key.nvim",
+--   event = "VeryLazy",
+--   opts = {
+--     -- your configuration comes here
+--     -- or leave it empty to use the default settings
+--     -- refer to the configuration section below
+--   },
+--   keys = {
+--     {
+--       "<leader>?",
+--       function()
+--         require("which-key").show({ global = false })
+--       end,
+--       desc = "Buffer Local Keymaps (which-key)",
+--     },
+--   },
+-- },
    -- =====================================================================
   -- 3. LSP
   -- =====================================================================

@@ -36,7 +36,7 @@ cmp.setup({
     -- If 'cody' is a custom source, keep it. Otherwise, remove or replace.
     {name = 'cody'}, 
     {name = 'luasnip'},
-    {name = 'buffer'},
+    -- {name = 'buffer'},
     {name = 'path'},
   },
   

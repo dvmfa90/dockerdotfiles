@@ -37,9 +37,9 @@ keymap("n", "<leader>N", "Nzzzv", opts)
 keymap("n", "<leader>dt", ":diffthis<CR>", opts) -- open 2 docs in split tab and use this to diff them
 keymap("n", "<leader>rs", ":g/^$/d<CR>", opts) -- Delete empty lines
 
-keymap("n", "<leader>vs", ":VimwikiVSplitLink<CR>", opts) -- open vimwiki link in vsplit
+-- keymap("n", "<leader>vs", ":VimwikiVSplitLink<CR>", opts) -- open vimwiki link in vsplit
 -- keymap("n", "<leader>ltd", ":Lexplore scp://diogo@10.11.2.15//home/diogo/ <CR>", opts) -- Delete empty lines
-keymap("n", "<leader>ltd", ":Lexplore scp://root@10.0.70.10//root/config/ <CR>", opts) -- Delete empty lines
+-- keymap("n", "<leader>ltd", ":Lexplore scp://root@10.0.70.10//root/config/ <CR>", opts) -- Delete empty lines
 
 -- Whitespace
 
@@ -101,5 +101,4 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
